@@ -1,0 +1,88 @@
+---
+title: "*fars*: A package to manipulate data of Administration's Fatality Analysis Reporting System"
+author: "Carlos J. Dommar"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+        #rmarkdown::pdf_document
+vignette: >
+  %\VignetteIndexEntry{*fars*: A package to manipulate data of Administration's Fatality Analysis Reporting System}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+The functions provided in the package *fars* use data (provided with the package) from the US National Highway Traffic Safety Administration's Fatality Analysis Reporting System, which is a nationwide census providing the American public yearly data regarding fatal injuries suffered in motor vehicle traffic crashes. The current five functions of the package facilitate the manipulation, exploration and plotting of the data.
+
+The functions contained in this packages are the following:
+
+- *`make_filename()`*
+- *`fars_read()`*
+- *`fars_read_years()`*
+- *`fars_summarize_years()`*
+- *`fars_map_state()`*
+
+## *`make_filename()`*
+
+The *`make_filename()`* function simply produce a string of the format *"accident_yyyy.csv.bz2"* where *yyyy* is the desire year. 
+This string is used in other *`fars`* functions 
+
+Examples:
+```{r}
+library(fars)
+make_filename(2015)
+make_filename(2001)
+```
+
+## *`fars_read()`*
+
+The function *`fars_read()`* reads and loads a file of the format *"accident_yyyy.csv.bz2"* into a dplyr's data frame tbl. The location where the file is located must be provided as a path. This function returns a error message either if the file's name
+#' does not exits or a data frame table representing the data of the file. Example:
+```{r}
+library("fars")
+fars_read("data/accident_2015.csv.bz2")
+```
+
+## *`fars_read_years()`*
+This function reads years and returns list with corresponding months and years out of the `FARS` data base. 
+The function reads a vector or list 'years' with four digit number in the format yyyy (e.g., 1927) and if the years exist/are correct the function wil returns a list with the correspondung month and year found in the data (`magrittr` needed for the operator `%>%`).
+
+Example:
+
+```{r}
+library(magrittr)
+fars_read_years(years = c(2013, 2015))
+```
+
+The `html_vignette` template includes a basic CSS theme. To override this theme you can specify your own CSS in the document metadata as follows:
+
+    output: 
+      rmarkdown::html_vignette:
+        css: mystyles.css
+
+## Figures
+
+The figure sizes have been customised so that you can easily put two images side-by-side. 
+
+```{r, fig.show='hold'}
+plot(1:10)
+plot(10:1)
+```
+
+You can enable figure captions by `fig_caption: yes` in YAML:
+
+    output:
+      rmarkdown::html_vignette:
+        fig_caption: yes
+
+Then you can use the chunk option `fig.cap = "Your figure caption."` in **knitr**.
+
+## More Examples
+
+You can write math expressions, e.g. $Y = X\beta + \epsilon$, footnotes^[A footnote here.], and tables, e.g. using `knitr::kable()`.
+
+```{r, echo=FALSE, results='asis'}
+knitr::kable(head(mtcars, 10))
+```
+
+Also a quote using `>`:
+
+> "He who gives up [code] safety for [code] speed deserves neither."
+([via](https://twitter.com/hadleywickham/status/504368538874703872))
