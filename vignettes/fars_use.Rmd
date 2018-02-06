@@ -21,7 +21,7 @@ The functions contained in this packages are the following:
 
 ## *`make_filename()`*
 
-The *`make_filename()`* function simply produce a string of the format *"accident_yyyy.csv.bz2"* where *yyyy* is the desire year. 
+The *`make_filename()`* function simply produce a string of the format *"accident_yyyy.csv.bz2"* where *yyyy* is the desire year in four digits format. 
 This string is used in other *`fars`* functions 
 
 Examples:
@@ -33,11 +33,12 @@ make_filename(2001)
 
 ## *`fars_read()`*
 
-The function *`fars_read()`* reads and loads a file of the format *"accident_yyyy.csv.bz2"* into a dplyr's data frame tbl. The location where the file is located must be provided as a path. This function returns a error message either if the file's name
+The function *`fars_read()`* reads and loads a file of the format *"accident_yyyy.csv.bz2"* into a dplyr's data frame tbl, where *yyyy* is the year in four digits format. The location where the file is located must be provided as a path. This function returns a error message either if the file's name
 #' does not exits or a data frame table representing the data of the file. Example:
 ```{r}
 library("fars")
-fars_read("data/accident_2015.csv.bz2")
+fars_read("~/accident_2015.csv.bz2")
+#fars_read("~/Documents/R-course/Course-3_Building_R_Packages/assignments/fars/data/accident_2015.csv.bz2")
 ```
 
 ## *`fars_read_years()`*

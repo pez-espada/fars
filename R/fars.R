@@ -11,6 +11,7 @@
 #'
 #'@examples
 #' fars_read("./data/accident_2015.csv.bz2")
+#' fars_read(filename = "~/accident_2015.csv.bz2")
 #' fars_read("mistake_file_name")
 #'
 #' @import readr dplyr
@@ -38,7 +39,7 @@ fars_read <- function(filename) {
 #'
 #' @examples
 #' make_filename(2001)
-#' make_filname(1987)
+#' make_filename(1987)
 #'
 #' @export
 make_filename <- function(year) {
@@ -71,19 +72,17 @@ make_filename <- function(year) {
 #'
 #' @export
 fars_read_years <- function(years) {
-        lapply(years, function(year) {
-                file <- make_filename(year)
-                #print(file)
-                tryCatch({
-                        dat <- fars_read(file)
-                        #head(dat)
-                        dplyr::mutate(dat, year = year) %>%
-                                dplyr::select(MONTH, year)
-                }, error = function(e) {
-                        warning("invalid year: ", year)
-                        return(NULL)
-                })
-        })
+  lapply(years, function(year) {
+      file <- make_filename(year)
+    tryCatch({
+      dat <- fars_read(paste0("~/", file))
+      dplyr::mutate(dat, year = year) %>% # the operator %>% needs to load magrittr
+        dplyr::select(MONTH, year)
+    }, error = function(e) {
+      warning("invalid year: ", year)
+      return(NULL)
+    })
+  })
 }
 
 
