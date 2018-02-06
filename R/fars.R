@@ -132,7 +132,7 @@ fars_summarize_years <- function(years) {
 #' @export
 fars_map_state <- function(state.num, year) {
         filename <- make_filename(year)
-        data <- fars_read(filename)
+        data <- fars_read(paste0("~/", filename))
         state.num <- as.integer(state.num)
 
         if(!(state.num %in% unique(data$STATE)))

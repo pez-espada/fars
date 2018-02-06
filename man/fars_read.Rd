@@ -11,7 +11,7 @@ fars_read(filename)
 will read}
 }
 \value{
-This function returns either a error message if the file's name
+This function returns a error message either if the file's name
 does not exits or a data frame table representing the data of the file
 }
 \description{
@@ -20,6 +20,7 @@ exists and then converting in into a data frame table
 }
 \examples{
 fars_read("./data/accident_2015.csv.bz2")
+fars_read(filename = "~/accident_2015.csv.bz2")
 fars_read("mistake_file_name")
 
 }

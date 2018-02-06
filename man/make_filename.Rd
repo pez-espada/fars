@@ -19,6 +19,6 @@ and it gives back a valid fars filename.
 }
 \examples{
 make_filename(2001)
-make_filname(1987)
+make_filename(1987)
 
 }

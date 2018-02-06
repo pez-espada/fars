@@ -25,21 +25,20 @@ The *`make_filename()`* function simply produce a string of the format *"acciden
 This string is used in other *`fars`* functions 
 
 Examples:
-```{r}
+```{r make_filename}
 library(fars)
 make_filename(2015)
 make_filename(2001)
 ```
 
 ## *`fars_read()`*
-
 The function *`fars_read()`* reads and loads a file of the format *"accident_yyyy.csv.bz2"* into a dplyr's data frame tbl, where *yyyy* is the year in four digits format. The location where the file is located must be provided as a path. This function returns a error message either if the file's name
 #' does not exits or a data frame table representing the data of the file. Example:
-```{r}
+```{r fars_read}
 library("fars")
 fars_read("~/accident_2015.csv.bz2")
-#fars_read("~/Documents/R-course/Course-3_Building_R_Packages/assignments/fars/data/accident_2015.csv.bz2")
 ```
+
 
 ## *`fars_read_years()`*
 This function reads years and returns list with corresponding months and years out of the `FARS` data base. 
@@ -47,43 +46,28 @@ The function reads a vector or list 'years' with four digit number in the format
 
 Example:
 
-```{r}
+```{r fars_read_years}
 library(magrittr)
 fars_read_years(years = c(2013, 2015))
 ```
 
-The `html_vignette` template includes a basic CSS theme. To override this theme you can specify your own CSS in the document metadata as follows:
+## *`fars_summarize_years`*
+This function takes years in format yyyy and returns the number of observations per month per year
 
-    output: 
-      rmarkdown::html_vignette:
-        css: mystyles.css
+Examples:
 
-## Figures
+```{r fars_summarize_years}
+fars_summarize_years(years = c(2013, 2015))
+fars_summarize_years(years = 2013:2015)
+fars_summarize_years(years = list(2013,2015))
 
-The figure sizes have been customised so that you can easily put two images side-by-side. 
-
-```{r, fig.show='hold'}
-plot(1:10)
-plot(10:1)
 ```
 
-You can enable figure captions by `fig_caption: yes` in YAML:
+## *fars_map_state *
+Plot a map with geolocated observations (cars accidents). 
+This functions takes a valid state number and a valid year and produces a map with geolocated observations (accidents) plotted as dots on the map.
 
-    output:
-      rmarkdown::html_vignette:
-        fig_caption: yes
+Example:
 
-Then you can use the chunk option `fig.cap = "Your figure caption."` in **knitr**.
-
-## More Examples
-
-You can write math expressions, e.g. $Y = X\beta + \epsilon$, footnotes^[A footnote here.], and tables, e.g. using `knitr::kable()`.
-
-```{r, echo=FALSE, results='asis'}
-knitr::kable(head(mtcars, 10))
-```
-
-Also a quote using `>`:
-
-> "He who gives up [code] safety for [code] speed deserves neither."
-([via](https://twitter.com/hadleywickham/status/504368538874703872))
+```{r fars_map_state}
+fars_map_state(51, 2015)
