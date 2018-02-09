@@ -1,7 +1,7 @@
 #' Read file into a dplyr's data frame tbl
 #'
-#' This function reads a file by firstly checking whether a files with that name
-#' exists and then converting in into a data frame table
+#' This function reads a file by firstly  checking that a file with that name
+#' exists and if it does, it converts it into a data frame table
 #'
 #' @param filename A character string giving the file's name the function
 #' will read

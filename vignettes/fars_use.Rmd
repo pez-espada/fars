@@ -2,8 +2,9 @@
 title: "*fars*: A package to manipulate data of Administration's Fatality Analysis Reporting System"
 author: "Carlos J. Dommar"
 date: "`r Sys.Date()`"
-output: rmarkdown::html_vignette
-        #rmarkdown::pdf_document
+output: #rmarkdown::html_vignette
+        rmarkdown::pdf_document
+        #rmarkdown::html_document
 vignette: >
   %\VignetteIndexEntry{*fars*: A package to manipulate data of Administration's Fatality Analysis Reporting System}
   %\VignetteEngine{knitr::rmarkdown}
@@ -21,7 +22,7 @@ The functions contained in this packages are the following:
 
 ## *`make_filename()`*
 
-The *`make_filename()`* function simply produce a string of the format *"accident_yyyy.csv.bz2"* where *yyyy* is the desire year in four digits format. 
+The *`make_filename()`* function takes a four digit number representing a year and produces a string of the format *"accident_yyyy.csv.bz2"* where *yyyy* is the year. 
 This string is used in other *`fars`* functions 
 
 Examples:
@@ -41,8 +42,9 @@ fars_read("~/accident_2015.csv.bz2")
 
 
 ## *`fars_read_years()`*
-This function reads years and returns list with corresponding months and years out of the `FARS` data base. 
-The function reads a vector or list 'years' with four digit number in the format yyyy (e.g., 1927) and if the years exist/are correct the function wil returns a list with the correspondung month and year found in the data (`magrittr` needed for the operator `%>%`).
+This function reads year(s) and returns a list with the corresponding months and year(s) out of the `FARS` data base. 
+The function reads a vector or list 'years' with four digit number in the format yyyy (e.g., 2015, (2013:2015), c(2013, 2015)) and if the years exist/are correct the function wil returns a list with the correspondung month and year found in the data (`magrittr` needed for the operator `%>%`).
+
 
 Example:
 
@@ -51,7 +53,7 @@ library(magrittr)
 fars_read_years(years = c(2013, 2015))
 ```
 
-## *`fars_summarize_years`*
+## *`fars_summarize_years()`*
 This function takes years in format yyyy and returns the number of observations per month per year
 
 Examples:
@@ -63,7 +65,7 @@ fars_summarize_years(years = list(2013,2015))
 
 ```
 
-## *fars_map_state *
+## *`fars_map_state()` *
 Plot a map with geolocated observations (cars accidents). 
 This functions takes a valid state number and a valid year and produces a map with geolocated observations (accidents) plotted as dots on the map.
 

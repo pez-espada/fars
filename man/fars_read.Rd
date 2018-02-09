@@ -15,8 +15,8 @@ This function returns a error message either if the file's name
 does not exits or a data frame table representing the data of the file
 }
 \description{
-This function reads a file by firstly checking whether a files with that name
-exists and then converting in into a data frame table
+This function reads a file by firstly  checking that a file with that name
+exists and if it does, it converts it into a data frame table
 }
 \examples{
 fars_read("./data/accident_2015.csv.bz2")
