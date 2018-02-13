@@ -35,11 +35,11 @@ make_filename(2001)
 ## *`fars_read()`*
 The function *`fars_read()`* reads and loads a file of the format *"accident_yyyy.csv.bz2"* into a dplyr's data frame tbl, where *yyyy* is the year in four digits format. The location where the file is located must be provided as a path. This function returns a error message either if the file's name
 #' does not exits or a data frame table representing the data of the file. Example:
-#```{r fars_read}
-##library("fars")
+```{r fars_read}
+#library("fars")
 #fars_read("data/accident_2015.csv.bz2") # (travis does not find this)
-##fars_read("~/accident_2014.csv.bz2") # (file '~/accident_2014.csv.bz2' does not exist)
-#```
+#fars_read("~/accident_2014.csv.bz2") # (file '~/accident_2014.csv.bz2' does not exist)
+```
 
 
 ## *`fars_read_years()`*
