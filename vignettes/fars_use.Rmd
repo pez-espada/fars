@@ -37,7 +37,9 @@ The function *`fars_read()`* reads and loads a file of the format *"accident_yyy
 #' does not exits or a data frame table representing the data of the file. Example:
 ```{r fars_read}
 library("fars")
-fars_read("data/accident_2015.csv.bz2")
+#fars_read("data/accident_2015.csv.bz2")
+fars_read("~/accident_2015.csv.bz2")
+#fars_read("data/accident_2014.csv.bz2")
 ```
 
 
