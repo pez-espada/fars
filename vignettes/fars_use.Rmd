@@ -38,8 +38,8 @@ The function *`fars_read()`* reads and loads a file of the format *"accident_yyy
 ```{r fars_read}
 library("fars")
 #fars_read("data/accident_2015.csv.bz2")
-#fars_read("data/accident_2015.csv.bz2") # (travis does not find this)
-fars_read("~/accident_2014.csv.bz2")
+fars_read("data/accident_2015.csv.bz2") # (travis does not find this)
+#fars_read("~/accident_2014.csv.bz2") # (file '~/accident_2014.csv.bz2' does not exist)
 ```
 
 

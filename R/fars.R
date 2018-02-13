@@ -27,6 +27,7 @@ fars_read <- function(filename) {
 
 
 
+#############################################################################
 #' Make a valid filename given a year
 #'
 #' This function takes a year in the format yyyy (e.g 1977, 2007, etc)
@@ -49,6 +50,7 @@ make_filename <- function(year) {
 
 
 
+#############################################################################
 ## magrittr needed for the operator %>%
 #' Reads years and returns list with corresponding months and years
 #'
@@ -87,6 +89,7 @@ fars_read_years <- function(years) {
 
 
 
+#############################################################################
 #' Takes years in format yyyy and returns the number
 #' of observations per month per year
 #'
@@ -114,6 +117,7 @@ fars_summarize_years <- function(years) {
 
 
 
+#############################################################################
 #' Plot a map with geolocated observations (cars accidents)
 #'
 #' This functions takes a valid state number and a valid year
