@@ -10,7 +10,6 @@
 #' does not exits or a data frame table representing the data of the file
 #'
 #'@examples
-#' fars_read("./data/accident_2015.csv.bz2")
 #' fars_read(filename = "~/accident_2015.csv.bz2")
 #' fars_read("mistake_file_name")
 #'

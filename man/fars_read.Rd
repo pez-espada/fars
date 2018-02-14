@@ -19,7 +19,6 @@ This function reads a file by firstly  checking that a file with that name
 exists and if it does, it converts it into a data frame table
 }
 \examples{
-fars_read("./data/accident_2015.csv.bz2")
 fars_read(filename = "~/accident_2015.csv.bz2")
 fars_read("mistake_file_name")
 
