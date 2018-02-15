@@ -1,5 +1,6 @@
 # this is my testing file. I use testthat to implemet some tests on my functions
 library(testthat)
+library(fars)
 context("fars functions")
 
 test_that("test_fars_read", {

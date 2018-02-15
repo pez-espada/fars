@@ -108,6 +108,7 @@ fars_read_years <- function(years) {
 #' @export
 fars_summarize_years <- function(years) {
         dat_list <- fars_read_years(years)
+        # year <- MONTH <- NULL
         dplyr::bind_rows(dat_list) %>%
                 dplyr::group_by(year, MONTH) %>%
                 dplyr::summarize(n = n()) %>%
@@ -136,6 +137,7 @@ fars_summarize_years <- function(years) {
 fars_map_state <- function(state.num, year) {
         filename <- make_filename(year)
         data <- fars_read(paste0("~/", filename))
+        #state.num <- MONTH <- STATE <- NULL
         state.num <- as.integer(state.num)
 
         if(!(state.num %in% unique(data$STATE)))
